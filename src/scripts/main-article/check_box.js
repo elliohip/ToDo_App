@@ -23,17 +23,6 @@ function check_box() {
     checkbox.body.innerHTML = "todo"
 
     checkbox.root.appendChild(checkbox.body)
-
-    checkbox.root.addEventListener("click", function() {
-        if (checkbox.completed = true){
-            checkbox.completed = false
-            checkbox.box.style.backgroundColor = "white"
-            checkbox.body.innerHTML = "todo"
-        } else {
-            checkbox.completed = true
-            checkbox.box.style.backgroundColor = "white"
-        }
-    });
     
 
     return checkbox

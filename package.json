@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "bundle.js",
-  "private" : true,
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack-config.js"
@@ -13,5 +13,8 @@
   "devDependencies": {
     "webpack": "^5.83.1",
     "webpack-cli": "^5.1.1"
+  },
+  "dependencies": {
+    "date-fns": "^2.30.0"
   }
 }
