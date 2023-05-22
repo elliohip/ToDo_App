@@ -1,11 +1,12 @@
 export default class Project{
 
-    constructor() {
+    constructor(n) {
         
-        this.lists = []
-        this.root = document.getElementById("main-content")
+        this.lists = [];
+        this.root = document.getElementById("main-content");
+        this.name = n;
 
-    }
+    };
 
     set_root() {
         this.root.innerHTML = ""
@@ -13,5 +14,5 @@ export default class Project{
         for(let i = 0; i < this.lists.length;i++) {
             this.root.appendChild(this.lists[i])
         }
-    }
+    };
 }

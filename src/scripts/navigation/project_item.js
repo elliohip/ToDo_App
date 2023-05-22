@@ -1,17 +1,24 @@
 import Project from "../main-article/Project"
 
-export default function project_item(json_file) {
+/**
+ * 
+ * @param {Project} project 
+ * @returns 
+ */
+export default function project_item(project) {
 
-    if (json_file == null) {
+    
 
-        let item = {
-            root : document.createElement("div"),
-            clickListener: function() {
-                
-            }
+    let item = {
+        root : document.createElement("div"),
+        clickListener: function() {
+            project.set_root();
         }
-
-
-        return item
     }
+
+    root.innerHTML = project.name
+
+
+    return item
+    
 }
