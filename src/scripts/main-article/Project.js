@@ -1,6 +1,14 @@
+import TodoList from "./todo_list";
+
 export default class Project{
 
-    constructor(n) {
+    /**
+     * 
+     * @param {String} n 
+     * @param {TodoList[]} lists 
+     */
+    constructor(n, lists) {
+        
         
         this.lists = [];
         this.root = document.getElementById("main-content");
@@ -12,7 +20,7 @@ export default class Project{
         this.root.innerHTML = ""
 
         for(let i = 0; i < this.lists.length;i++) {
-            this.root.appendChild(this.lists[i])
+            this.root.appendChild(this.lists[i].root)
         }
     };
 }

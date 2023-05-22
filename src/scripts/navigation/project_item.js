@@ -16,7 +16,9 @@ export default function project_item(project) {
         }
     }
 
-    root.innerHTML = project.name
+    item.root.classList.add("project_item_selector")
+
+    root.innerHTML = "> " + project.name
 
 
     return item

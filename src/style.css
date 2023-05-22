@@ -1,0 +1,16 @@
+#main-content {
+
+    background-color: red;
+    grid-row-start: 2;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-rows: 1fr fit-content;
+    grid-template-columns: 1fr 5fr;
+}
+
+nav{
+    grid-row-start: 2;
+    grid-column-end: 2;
+}
