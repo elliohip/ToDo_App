@@ -3,6 +3,10 @@ import TodoItem from "./TodoItem";
 
 export default class TodoList {
 
+    /**
+     * 
+     * @param {String} t Title of list
+     */
     constructor(t){
 
         this.items = []
@@ -12,7 +16,7 @@ export default class TodoList {
 
         this.blank_item = new BlankTodoItem();
 
-        
+        console.log("made blank")
 
         this.items.push(this.blank_item)
         this.main.appendChild(this.blank_item.root)

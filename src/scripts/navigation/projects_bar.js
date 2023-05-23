@@ -1,14 +1,19 @@
 export default function projects_bar() {
     let projects = {
         root : document.createElement("div"),
+        projects_button : document.createElement("div"),
+        projects_container : document.createElement("div"),
         items : [],
         is_opened : false,
         
-    }
+    };
 
-    projects.root.innerHTML = "> projects"
+    projects.projects_button.innerHTML = "> projects";
 
-    projects.root.classList.add("projects_bar")
+    projects.root.classList.add("projects_bar");
 
-    return projects
-}
+    projects.root.appendChild(projects.projects_button);
+    projects.root.appendChild(projects.projects_container);
+
+    return projects;
+};

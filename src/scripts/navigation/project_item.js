@@ -13,12 +13,13 @@ export default function project_item(project) {
         root : document.createElement("div"),
         clickListener: function() {
             project.set_root();
+            
         }
     }
 
     item.root.classList.add("project_item_selector")
 
-    root.innerHTML = "> " + project.name
+    item.root.innerHTML = "> " + project.name
 
 
     return item

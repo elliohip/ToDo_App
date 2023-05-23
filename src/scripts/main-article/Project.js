@@ -5,12 +5,12 @@ export default class Project{
     /**
      * 
      * @param {String} n 
-     * @param {TodoList[]} lists 
+     * @param {[]} lists 
      */
     constructor(n, lists) {
         
         
-        this.lists = [];
+        this.lists = lists;
         this.root = document.getElementById("main-content");
         this.name = n;
 
@@ -21,6 +21,7 @@ export default class Project{
 
         for(let i = 0; i < this.lists.length;i++) {
             this.root.appendChild(this.lists[i].root)
+            console.log(this.root)
         }
     };
 }
