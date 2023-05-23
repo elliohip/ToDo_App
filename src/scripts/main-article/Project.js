@@ -24,4 +24,14 @@ export default class Project{
             console.log(this.root)
         }
     };
+
+    /**
+     * 
+     * @param {TodoList} li 
+     */
+    add_list(li) {
+        this.lists.push(li)
+
+        this.root.appendChild(li.root)
+    }
 }

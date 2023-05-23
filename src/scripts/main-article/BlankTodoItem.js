@@ -7,6 +7,13 @@ export default class BlankTodoItem {
 
         this.root = document.createElement("div")
 
+        this.user_input = {
+            title : "",
+            description : "",
+            date : "",
+            priority : "",
+        }
+
         this.input = document.createElement("div")
         this.title = document.createElement("input")
         this.description = document.createElement("input")
@@ -31,28 +38,39 @@ export default class BlankTodoItem {
         this.priority.appendChild(medium_priority)
         this.priority.appendChild(high_priority)
         
-        this.add_button = document.createElement("div")
+        this.add_button = document.createElement("button");
 
-        this.user_input = {
+        this.add_button.innerHTML = "add Item"
 
-            title : this.title.value, 
-            description : this.description.value,
-            date : undefined,
-            priority : ""
-
-        }
+        
 
         this.root.appendChild(this.title)
         this.root.appendChild(this.description)
         this.root.appendChild(this.priority)
         // this.root.appendChild(this.main)
 
-
+        
         this.root.appendChild(this.add_button)
 
+        this.root.classList.add("Blank-Todo-Item")
     }
 
     to_todo_item() {
-        
+
+
+        this.update_user_input()
+
+        console.log(
+            this.user_input
+        )
+
+        return new TodoItem(this.user_input.title, this.user_input.description, this.user_input.date, this.user_input.date)
+    }
+
+    update_user_input() {
+        this.user_input.title = this.title.value
+        this.user_input.title = this.description.value
+        this.user_input.title = this.date.value
+        this.user_input.title = this.priority.value;
     }
 }

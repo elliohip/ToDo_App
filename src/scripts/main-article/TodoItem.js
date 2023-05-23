@@ -25,11 +25,12 @@ export default class TodoItem{
         this.remove_button = check_box()
 
         this.priority = p;
+        this.checkbox = check_box()
 
         this.create_item();
 
 
-        this.checkbox = check_box()
+        
 
         
 
@@ -42,6 +43,8 @@ export default class TodoItem{
                 this.checkbox.box.style.backgroundColor = "white"
             }
         });
+
+        this.rm = false;
 
 
         
@@ -56,9 +59,11 @@ export default class TodoItem{
         if (this.remove_button.completed == true) {
             this.remove_button.completed = false
             this.remove_button.box.style.backgroundColor = "white"
+            this.rm = false;
         } else if (this.remove_button.completed == false) {
             this.remove_button.completed = true
             this.remove_button.box.style.backgroundColor = "white"
+            this.rm = true
         }
 
     }
@@ -92,14 +97,14 @@ export default class TodoItem{
         description.innerHTML = this.description;
 
         this.remove_button.innerHTML = "Remove"
-        this.remove_button.classList.add("remove_item_button")
+        // this.remove_button.classList.add("remove_item_button")
         
 
         this.root.appendChild(title)
         this.root.appendChild(due_date)
         this.root.appendChild(description)
-        this.root.appendChild(this.checkbox)
-        this.root.appendChild(this.remove_button)
+        this.root.appendChild(this.checkbox.root)
+        this.root.appendChild(this.remove_button.root)
         
 
     }

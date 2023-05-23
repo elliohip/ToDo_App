@@ -16,9 +16,15 @@ export default class TodoList {
 
         this.blank_item = new BlankTodoItem();
 
-        console.log("made blank")
+        this.next_item = undefined
 
         this.items.push(this.blank_item)
+
+        this.blank_item.add_button.addEventListener("click", () => {this.add_button_listener(this.blank_item.to_todo_item())})
+
+        console.log("made blank")
+
+        
         this.main.appendChild(this.blank_item.root)
 
         if (t != null) {
@@ -39,14 +45,36 @@ export default class TodoList {
      * @param {TodoItem} it 
      */
     add_item(it) {
-        this.items.pop()
+
+        let remove_element = this.items.pop()
+
+        this.main.removeChild(remove_element.root)
         this.items.push(it)
         this.main.appendChild(it.root)
     }
 
-    check_completed() {
+    
+    /**
+     * 
+     * 
+     */
+    add_button_listener(list) {
 
+        
+
+        this.add_item(this.blank_item.to_todo_item())
+
+        this.blank_item = new BlankTodoItem()
+
+        this.blank_item.add_button.addEventListener("click", () => {this.add_button_listener(this.blank_item.to_todo_item())})
+
+        this.items.push(this.blank_item)
+        this.main.appendChild(this.blank_item.root)
+
+        
     }
+
+
 
 
 }

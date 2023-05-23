@@ -12,15 +12,11 @@ import project_item from "./scripts/navigation/project_item"
 import "./style.css"
 import send_to_storage from "./scripts/send_to_storage"
 import BlankTodoItem from "./scripts/main-article/BlankTodoItem"
+import lightFormat from "date-fns/fp/lightFormat/index.js"
 
 
 
-let nav = {
-    root : document.createElement("nav"),
-    new_project : document.createElement("div"),
-    projects : projects_bar()
-
-}
+let nav = nav_bar()
 
 let doc = document
 
@@ -31,6 +27,7 @@ const wrapper = document.getElementById("wrapper")
 
 let current_project = undefined
 
+nav.new_list.innerHTML = "> New List"
 
 
 nav.new_project.classList.add("new-project-button")
@@ -84,7 +81,16 @@ function open_bar() {
 }
 
 
+nav.new_list.addEventListener("click", new_list)
 
+function new_list() {
+    let name = alert("new list name")
+
+    let new_li = new TodoList(name)
+
+    current_project.add_list(new_li)
+};
 
 
 wrapper.appendChild(nav.root)
+
