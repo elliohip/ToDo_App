@@ -45,6 +45,7 @@ nav.new_project.addEventListener("click", function() {
 
     // does nothing for now
     send_to_storage("project", project)
+
     project.set_root()
 
     
@@ -69,11 +70,11 @@ function open_bar() {
             if (nav.projects.is_opened == false) {
                 nav.projects.projects_container.innerHTML = ""
                 for (let i = 0; i < nav.projects.items.length; i++) {
-                    nav.projects.root.appendChild(nav.projects.items[i].root)
+                    nav.projects.projects_container.appendChild(nav.projects.items[i].root)
                 }
                 nav.projects.is_opened = true
             }
-            else {
+            else if (nav.projects.is_opened == true) {
                 nav.projects.projects_container.innerHTML = ""
                 nav.projects.is_opened = false
             }
@@ -95,6 +96,6 @@ wrapper.appendChild(nav.root)
 
 nav.remove_selected_items_button.addEventListener("click", function() {
     current_project.remove_todo_items();
-    
+
     console.log("removed");
 });

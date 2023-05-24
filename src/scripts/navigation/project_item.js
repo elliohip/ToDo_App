@@ -19,7 +19,7 @@ export default function project_item(project) {
 
     item.root.classList.add("project_item_selector")
 
-    item.root.innerHTML = "> " + project.name
+    item.root.innerHTML = "&nbsp > " + project.name
 
 
     return item
