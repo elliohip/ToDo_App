@@ -44,7 +44,7 @@ export default class TodoItem{
 
         
 
-        this.root.classList.add("TodoItem")
+        this.root.classList.add("Todo-Item")
 
     }
 
@@ -88,6 +88,7 @@ export default class TodoItem{
         const description = document.createElement("p");
         // const due_date = document.createElement("p");
 
+        description.classList.add("Todo-Item-description")
         
         
         

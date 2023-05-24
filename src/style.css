@@ -24,3 +24,62 @@ nav{
 .remove-selected-items {
     border: black bold 1px;
 }
+
+.project-item-selector {
+    background-color: dodgerblue;
+}
+
+.projects-bar-show-projects {
+    background-color: deepskyblue;
+}
+
+.Todo-Item {
+    background-color: deepskyblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+}
+
+.Todo-Item h1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: center;
+}
+
+.Todo-Item .Todo-Item-description {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    justify-self: center;
+    width: clamp(200px, 50%, 800px);
+    
+    min-width: 200px;
+}
+
+.Project {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.Todo-List-Content{
+    display: grid;
+    grid-template-columns: 1fr;
+
+    justify-content: space-between;
+    
+}
+
+.Todo-List-Header{
+    font-size: large;
+}
+
+.Todo-List-Content div{
+    display: grid;
+    justify-content: center;
+}
+
+.Todo-List-Content div h1{
+    align-self: center;
+    justify-self: center;
+}

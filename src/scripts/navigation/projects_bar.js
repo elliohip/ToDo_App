@@ -8,9 +8,11 @@ export default function projects_bar() {
         
     };
 
+    projects.projects_button.classList.add("projects-bar-show-projects")
+
     projects.projects_button.innerHTML = "> projects";
 
-    projects.root.classList.add("projects_bar");
+    projects.root.classList.add("projects-bar");
 
     projects.root.appendChild(projects.projects_button);
     projects.root.appendChild(projects.projects_container);

@@ -14,6 +14,8 @@ export default class Project{
         this.root = document.getElementById("main-content");
         this.name = n;
 
+        this.root.classList.add("Project")
+
     };
 
     set_root() {

@@ -14,6 +14,10 @@ export default class TodoList {
         this.root = document.createElement("div");
         this.main = document.createElement("div");
 
+        this.root.classList.add("Todo-List")
+        this.main.classList.add("Todo-List-Content")
+        this.header.classList.add("Todo-List-Header")
+
         this.blank_item = new BlankTodoItem();
 
         this.next_item = undefined
