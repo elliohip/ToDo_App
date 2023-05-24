@@ -34,4 +34,12 @@ export default class Project{
 
         this.root.appendChild(li.root)
     }
+
+    remove_todo_items() {
+        let i = 0, len = this.lists.length;
+        while(i < len) {
+            this.lists[i].remove_selected_items();
+            i++;
+        };
+    }
 }

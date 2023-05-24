@@ -69,8 +69,8 @@ export default class BlankTodoItem {
 
     update_user_input() {
         this.user_input.title = this.title.value
-        this.user_input.title = this.description.value
-        this.user_input.title = this.date.value
-        this.user_input.title = this.priority.value;
+        this.user_input.description = this.description.value
+        this.user_input.date = this.date.value
+        this.user_input.priority = this.priority.value;
     }
 }

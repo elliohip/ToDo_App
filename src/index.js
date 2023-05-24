@@ -59,8 +59,7 @@ nav.new_project.addEventListener("click", function() {
 
 
 
-nav.root.appendChild(nav.new_project)
-nav.root.appendChild(nav.projects.root)
+
 
 nav.projects.projects_button.addEventListener("click", function() {
     open_bar()
@@ -84,7 +83,7 @@ function open_bar() {
 nav.new_list.addEventListener("click", new_list)
 
 function new_list() {
-    let name = alert("new list name")
+    let name = prompt("new list name")
 
     let new_li = new TodoList(name)
 
@@ -94,3 +93,8 @@ function new_list() {
 
 wrapper.appendChild(nav.root)
 
+nav.remove_selected_items_button.addEventListener("click", function() {
+    current_project.remove_todo_items();
+    
+    console.log("removed");
+});

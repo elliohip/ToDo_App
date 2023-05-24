@@ -74,6 +74,24 @@ export default class TodoList {
         
     }
 
+    remove_selected_items() {
+
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i] instanceof TodoItem && this.items[i].rm == true) {
+                this.items[i].root.parentElement.removeChild(this.items[i].root)
+                delete this.items[i]
+            }
+        }
+
+        this.items.filter(item => item != null)
+
+        
+        
+        
+        
+
+    }
+
 
 
 

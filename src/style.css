@@ -1,6 +1,6 @@
 #main-content {
 
-    background-color: red;
+    background-color: rgb(104, 172, 203);
     grid-row-start: 2;
 }
 
@@ -13,4 +13,14 @@
 nav{
     grid-row-start: 2;
     grid-column-end: 2;
+}
+
+.checkbox-box {
+    border: black solid 1px;
+    width: 10px;
+    height: 10px;
+}
+
+.remove-selected-items {
+    border: black bold 1px;
 }

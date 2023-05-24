@@ -25,7 +25,8 @@ export default class TodoItem{
         this.remove_button = check_box()
 
         this.priority = p;
-        this.checkbox = check_box()
+
+
 
         this.create_item();
 
@@ -34,15 +35,9 @@ export default class TodoItem{
 
         
 
-        this.checkbox.box.addEventListener("click", function() {
-            if (this.checkbox.completed = true){
-                this.checkbox.completed = false
-                this.checkbox.box.style.backgroundColor = "white"
-            } else {
-                this.checkbox.completed = true
-                this.checkbox.box.style.backgroundColor = "white"
-            }
-        });
+
+
+        this.remove_button.box.addEventListener("click", () => {this.remove_button_listener()});
 
         this.rm = false;
 
@@ -57,24 +52,28 @@ export default class TodoItem{
     remove_button_listener() {
 
         if (this.remove_button.completed == true) {
+
+
             this.remove_button.completed = false
             this.remove_button.box.style.backgroundColor = "white"
             this.rm = false;
         } else if (this.remove_button.completed == false) {
             this.remove_button.completed = true
-            this.remove_button.box.style.backgroundColor = "white"
+            this.remove_button.box.style.backgroundColor = "black"
             this.rm = true
         }
 
     }
 
     completed_button_listener() {
-        if (this.remove_button.completed == true) {
-            this.remove_button.completed = false
-            this.remove_button.box.style.backgroundColor = "white"
-        } else if (this.remove_button.completed == false) {
-            this.remove_button.completed = true
-            this.remove_button.box.style.backgroundColor = "white"
+        if (this.checkbox.completed == true) {
+            this.checkbox.completed = false
+            this.checkbox.box.style.backgroundColor = "white"
+            this.rm = false
+        } else if (this.checkbox.completed == false) {
+            this.checkbox.completed = true
+            this.checkbox.box.style.backgroundColor = "black"
+            this.rm = true
         }
     }
 
@@ -83,16 +82,17 @@ export default class TodoItem{
 
     create_item() {
 
-        let date_string = String(this.due_date.month) + "/" + String(this.due_date.day) + "/" +  String(this.due_date.year);
+        // TODO: Use date library to add dates user can schedule
+        //let date_string = String(this.due_date.month) + "/" + String(this.due_date.day) + "/" +  String(this.due_date.year);
         const title = document.createElement("h1");
         const description = document.createElement("p");
-        const due_date = document.createElement("p");
+        // const due_date = document.createElement("p");
 
         
         
         
 
-        due_date.innerHTML = date_string;
+        // due_date.innerHTML = date_string;
         title.innerHTML = this.title;
         description.innerHTML = this.description;
 
@@ -101,9 +101,9 @@ export default class TodoItem{
         
 
         this.root.appendChild(title)
-        this.root.appendChild(due_date)
+        // this.root.appendChild(due_date)
         this.root.appendChild(description)
-        this.root.appendChild(this.checkbox.root)
+
         this.root.appendChild(this.remove_button.root)
         
 
