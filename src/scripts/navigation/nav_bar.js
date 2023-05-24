@@ -10,6 +10,7 @@ export default function nav_bar() {
         new_list : document.createElement("div"),
         remove_list : {
             root : document.createElement("div"),
+            input_label: document.createElement("p"),
             input_bar : document.createElement("input"),
             action_button : document.createElement("button")
         }
@@ -19,9 +20,13 @@ export default function nav_bar() {
     nav.remove_list.input_bar.type = "text"
     nav.remove_list.action_button.hnnerHTML = "rm"
 
+    nav.remove_list.input_bar.classList.add("remove-list-input")
 
     nav.new_list.innerHTML ="> new list"
 
+    nav.remove_list.input_label.innerHTML = "rm lst: "
+
+    nav.remove_list.root.appendChild(nav.remove_list.input_label)
     nav.remove_list.root.appendChild(nav.remove_list.input_bar)
     nav.remove_list.root.appendChild(nav.remove_list.action_button)
 
@@ -29,7 +34,7 @@ export default function nav_bar() {
 
     nav.remove_selected_items_button.innerHTML = "> Remove_Selected_Items <"; 
 
-    nav.remove_list.root.classList.add("remove_list")
+    nav.remove_list.root.classList.add("remove-list")
 
     nav.root.appendChild(nav.new_project)
     nav.root.appendChild(nav.projects.root)

@@ -38,12 +38,22 @@ nav{
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
+    width: clamp(200px, 40%, 700px);
+
+    border: solid gray 1px;
+
+    justify-self: center;
+    gap: 10px;
+}
+
+.Todo-Item *{
+    border: solid gray 1px;
 }
 
 .Todo-Item h1{
     grid-column-start: 1;
     grid-column-end: 3;
-    display: center;
+    justify-self: center;
 }
 
 .Todo-Item .Todo-Item-description {
@@ -53,8 +63,9 @@ nav{
     grid-row-end: 5;
     justify-self: center;
     width: clamp(200px, 50%, 800px);
-    
+    font-size: 15pt;
     min-width: 200px;
+    word-wrap: break-word;
 }
 
 .Project {
@@ -65,9 +76,17 @@ nav{
 .Todo-List-Content{
     display: grid;
     grid-template-columns: 1fr;
-
+    gap: 15px;
     justify-content: space-between;
     
+}
+
+nav * {
+    background-color: cornflowerblue;
+}
+
+.remove-list{
+
 }
 
 .Todo-List-Header{
@@ -82,4 +101,12 @@ nav{
 .Todo-List-Content div h1{
     align-self: center;
     justify-self: center;
+}
+
+.remove-list-input{
+    background-color: white;
+}
+.remove-list button{
+    height: 18px;
+    background-color: red;
 }
