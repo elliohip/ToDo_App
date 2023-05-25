@@ -20,6 +20,24 @@ let nav = nav_bar()
 
 let doc = document
 
+let projects = []
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    let projs =JSON.parse(localStorage.getItem("projects"))
+
+    console.log(projs)
+    if (JSON.parse(localStorage.getItem("projects")) != null) {
+        for (let i = 0; i < projs.length; i++) {
+            projects[i] = Object.setPrototypeOf(projs[i], Project.prototype)
+            nav.projects.items.push(projects[i])
+        }
+    }
+
+    
+    
+});
+
 const main_content = document.getElementById("main-content")
 
 
@@ -40,11 +58,14 @@ nav.new_project.addEventListener("click", function() {
     let first_list = prompt("name of first list: ")
     let project = new Project(name, [new TodoList(first_list)])
 
+
     current_project = project
+
+    projects.push(project)
     nav.projects.items.push(project_item(project))
 
     // does nothing for now
-    send_to_storage("project", project)
+    send_to_storage("projects", projects)
 
     project.set_root()
 

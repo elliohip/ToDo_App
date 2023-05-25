@@ -1,5 +1,5 @@
 import { check_box } from "./check_box";
-
+import {send_to_storage} from "../send_to_storage"
 import {Date} from "../Date"
 
 
@@ -114,13 +114,6 @@ export default class TodoItem{
 
         this.root.parentElement.removeChild(this.root)
 
-    }
-
-    send_to_storage() {
-
-        
-
-        
     }
     
 
