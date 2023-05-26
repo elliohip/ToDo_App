@@ -1,3 +1,5 @@
+import ListBase from "../base_objects/list";
+import ProjectBase from "../base_objects/project";
 import TodoList from "./todo_list";
 
 export default class Project{
@@ -44,4 +46,25 @@ export default class Project{
             i++;
         };
     }
+
+
+    find_list_title(name) {
+        for (let i = 0; i < this.lists.length; i++) {
+            if (this.lists[i].title == name) {
+                return this.lists[i]
+            }
+        }
+    }
+
+    to_base_project() {
+
+        let base = ProjectBase(this.name, [])
+
+
+        for (let i = 0; i < this.lists.length; i++) {
+            base.lists[i].push(this.lists[i].to_base_list());
+        }
+        
+        return base;
+    };
 }

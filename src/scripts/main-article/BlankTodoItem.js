@@ -1,9 +1,16 @@
 import TodoItem from "./TodoItem";
 import Date from "../Date";
+import item_base from "../base_objects/item";
+
+import ItemBase from "../base_objects/item";
+import index from "../../index"
+
+
 
 export default class BlankTodoItem {
 
-    constructor() {
+    constructor(list_na) {
+        this.list_name = list_na
 
         this.root = document.createElement("div")
 
@@ -53,24 +60,25 @@ export default class BlankTodoItem {
         this.root.appendChild(this.add_button)
 
         this.root.classList.add("Blank-Todo-Item")
-    }
+    };
 
     to_todo_item() {
 
+        let item = ItemBase(this.user_input.title, this.user_input.description, this.user_input.priority, this.user_input.date, this.list_name)
 
         this.update_user_input()
 
-        console.log(
-            this.user_input
-        )
+        
+        console.log(item);
 
-        return new TodoItem(this.user_input.title, this.user_input.description, this.user_input.date, this.user_input.date)
-    }
+        return new TodoItem(item)
+
+    };
 
     update_user_input() {
         this.user_input.title = this.title.value
         this.user_input.description = this.description.value
         this.user_input.date = this.date.value
         this.user_input.priority = this.priority.value;
-    }
+    };
 }

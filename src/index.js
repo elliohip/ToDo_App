@@ -10,10 +10,13 @@ import projects_bar from "./scripts/navigation/projects_bar"
 import project_item from "./scripts/navigation/project_item"
 
 import "./style.css"
-import send_to_storage from "./scripts/send_to_storage"
+
 import BlankTodoItem from "./scripts/main-article/BlankTodoItem"
 import lightFormat from "date-fns/fp/lightFormat/index.js"
 
+import update_storage from "./scripts/storage/update_storage"
+
+import base_project_to_article from "./scripts/base_objects/base_project_to_article"
 
 
 let nav = nav_bar()
@@ -22,19 +25,15 @@ let doc = document
 
 let projects = []
 
+let current_project = undefined
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    let projs =JSON.parse(localStorage.getItem("projects"))
+    let p = JSON.parse(localStorage.getItem("project"))
 
-    console.log(projs)
-    if (JSON.parse(localStorage.getItem("projects")) != null) {
-        for (let i = 0; i < projs.length; i++) {
-            projects[i] = Object.setPrototypeOf(projs[i], Project.prototype)
-            nav.projects.items.push(projects[i])
-        }
+    if (p != null) {
+        current_project = base_project_to_article(p)
     }
-
-    
     
 });
 
@@ -43,7 +42,7 @@ const main_content = document.getElementById("main-content")
 
 const wrapper = document.getElementById("wrapper")
 
-let current_project = undefined
+
 
 nav.new_list.innerHTML = "> New List"
 
@@ -58,6 +57,7 @@ nav.new_project.addEventListener("click", function() {
     let first_list = prompt("name of first list: ")
     let project = new Project(name, [new TodoList(first_list)])
 
+    
 
     current_project = project
 
@@ -65,7 +65,7 @@ nav.new_project.addEventListener("click", function() {
     nav.projects.items.push(project_item(project))
 
     // does nothing for now
-    send_to_storage("projects", projects)
+    update_storage()
 
     project.set_root()
 
@@ -120,3 +120,5 @@ nav.remove_selected_items_button.addEventListener("click", function() {
 
     console.log("removed");
 });
+
+export{current_project}

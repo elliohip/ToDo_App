@@ -1,24 +1,24 @@
 import { check_box } from "./check_box";
-import {send_to_storage} from "../send_to_storage"
+
 import {Date} from "../Date"
+import ItemBase from "../base_objects/item";
 
 
 export default class TodoItem{
 
     /**
      * 
-     * @param {String} t Stirng for the Title
-     * @param {String} d String for the description
-     * @param {Date} date Date object for Date, in m/d/y format
-     * @param {String} p String for the priority
+     * @param {ItemBase} item
      */
-    constructor(t, d, date, p) {
+    constructor(item) {
+
+        this.base = item;
 
         this.root = document.createElement("div")
 
-        this.title = t;
-        this.description = d;
-        this.due_date = date;
+        this.title = item.name;
+        this.description = item.description;
+        this.due_date = item.date;
 
         
 
@@ -84,15 +84,15 @@ export default class TodoItem{
 
         // TODO: Use date library to add dates user can schedule
         //let date_string = String(this.due_date.month) + "/" + String(this.due_date.day) + "/" +  String(this.due_date.year);
-        const title = document.createElement("h1");
-        const description = document.createElement("p");
+        const title_comp = document.createElement("h1");
+        const description_comp = document.createElement("p");
         // const due_date = document.createElement("p");
 
         description.classList.add("Todo-Item-description")
         
         
         
-
+        
         // due_date.innerHTML = date_string;
         title.innerHTML = this.title;
         description.innerHTML = this.description;

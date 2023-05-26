@@ -1,4 +1,5 @@
 import Project from "../main-article/Project"
+import index from "../../index"
 
 /**
  * 
@@ -13,7 +14,7 @@ export default function project_item(project) {
         root : document.createElement("div"),
         clickListener: function() {
             project.set_root();
-            
+            index = project
         }
     }
 
