@@ -12,7 +12,7 @@ export default class TodoList {
      */
     constructor(t, p){
 
-        this.base = this.to_base_list()
+        
 
         this.title = t;
 
@@ -53,6 +53,8 @@ export default class TodoList {
 
         this.root.appendChild(this.header);
         this.root.appendChild(this.main);
+
+        this.base = this.to_base_list()
     }
 
     /**

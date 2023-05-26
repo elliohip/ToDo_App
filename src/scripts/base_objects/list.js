@@ -7,13 +7,10 @@
  */
 export default function ListBase(n, p, its) {
 
-    
-    this.name = n;
-    this.project = p;
-    this.items = [];
-
-    
-    if (its != null) {
-        this.items = its
+    return {
+        name : n,
+        project : p,
+        items : its
     }
+    
 }

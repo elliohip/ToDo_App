@@ -8,7 +8,7 @@ export default class TodoItem{
 
     /**
      * 
-     * @param {ItemBase} item
+     * @param {} item
      */
     constructor(item) {
 
@@ -24,7 +24,7 @@ export default class TodoItem{
 
         this.remove_button = check_box()
 
-        this.priority = p;
+        this.priority = item.p;
 
 
 
@@ -88,22 +88,22 @@ export default class TodoItem{
         const description_comp = document.createElement("p");
         // const due_date = document.createElement("p");
 
-        description.classList.add("Todo-Item-description")
+        description_comp.classList.add("Todo-Item-description")
         
         
         
         
         // due_date.innerHTML = date_string;
-        title.innerHTML = this.title;
-        description.innerHTML = this.description;
+        title_comp.innerHTML = this.title;
+        description_comp.innerHTML = this.description;
 
         this.remove_button.innerHTML = "Remove"
         // this.remove_button.classList.add("remove_item_button")
         
 
-        this.root.appendChild(title)
+        this.root.appendChild(title_comp)
         // this.root.appendChild(due_date)
-        this.root.appendChild(description)
+        this.root.appendChild(description_comp)
 
         this.root.appendChild(this.remove_button.root)
         

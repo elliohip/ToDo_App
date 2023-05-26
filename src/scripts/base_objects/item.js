@@ -1,7 +1,11 @@
 export default function ItemBase(n, de, da, p, ln) {
-    this.name = n;
-    this.description = de;
-    this.date = da;
-    this.priority = p;
-    this.list_name = ln;
+
+    return {
+        name :n,
+        description: de,
+        date: da,
+        priority: p,
+        list_name : ln
+    }
+    
 }

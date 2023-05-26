@@ -29,6 +29,8 @@ let current_project = undefined
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    localStorage.removeItem("project")
+
     let p = JSON.parse(localStorage.getItem("project"))
 
     if (p != null) {
@@ -65,7 +67,7 @@ nav.new_project.addEventListener("click", function() {
     nav.projects.items.push(project_item(project))
 
     // does nothing for now
-    update_storage()
+//    update_storage()
 
     project.set_root()
 
