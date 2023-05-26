@@ -3,6 +3,9 @@ import ListBase from "../base_objects/list";
 import BlankTodoItem from "./BlankTodoItem";
 import TodoItem from "./TodoItem";
 
+import { current_project } from "../../index";
+import {update_storage} from "../storage/update_storage"
+
 export default class TodoList {
 
     /**
@@ -81,12 +84,16 @@ export default class TodoList {
 
         this.add_item(this.blank_item.to_todo_item())
 
+        update_storage()
+
         this.blank_item = new BlankTodoItem(this.title)
 
         this.blank_item.add_button.addEventListener("click", () => {this.add_button_listener(this.blank_item.to_todo_item())})
 
         this.items.push(this.blank_item)
         this.main.appendChild(this.blank_item.root)
+
+        
 
         
     }
