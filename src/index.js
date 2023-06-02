@@ -57,7 +57,7 @@ nav.new_project.addEventListener("click", function() {
 
     let name = prompt("name of project: ")
     let first_list = prompt("name of first list: ")
-    let project = new Project(name, [new TodoList(first_list)])
+    let project = new Project(name, [new TodoList(first_list,name)])
 
     
 
@@ -109,7 +109,7 @@ nav.new_list.addEventListener("click", new_list)
 function new_list() {
     let name = prompt("new list name")
 
-    let new_li = new TodoList(name)
+    let new_li = new TodoList(name, current_project.name)
 
     current_project.add_list(new_li)
 };
