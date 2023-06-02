@@ -121,7 +121,7 @@ export default class TodoList {
         let base = ListBase(this.title, this.project_name, [])
         for (let i = 0; i < this.items.length; i++) {
             if (!(this.items[i] instanceof BlankTodoItem)) {
-                base.items[i].push(ItemBase(this.items[i].title, this.items[i].description, this.items[i].date, this.title))
+                base.items.push(ItemBase(this.items[i].title, this.items[i].description, this.items[i].date, this.title))
             }
         }
 

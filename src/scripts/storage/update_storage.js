@@ -8,6 +8,8 @@ import Project from "../main-article/Project";
 
 function update_storage() {
 
+    console.log("storage_update fired")
+
     localStorage.setItem("project", JSON.stringify(current_project.to_base_project()))
     
 }

@@ -14,7 +14,7 @@ import "./style.css"
 import BlankTodoItem from "./scripts/main-article/BlankTodoItem"
 import lightFormat from "date-fns/fp/lightFormat/index.js"
 
-import update_storage from "./scripts/storage/update_storage"
+//import update_storage from "./scripts/storage/update_storage"
 
 import base_project_to_article from "./scripts/base_objects/base_project_to_article"
 
@@ -122,5 +122,13 @@ nav.remove_selected_items_button.addEventListener("click", function() {
 
     console.log("removed");
 });
+
+function update_storage() {
+
+    console.log("storage_update fired")
+
+    localStorage.setItem("project", JSON.stringify(current_project.to_base_project()))
+    
+}
 
 export{current_project}

@@ -1,15 +1,15 @@
 export default function ProjectBase(n, lsts) {
     
-    this.name= n;
-    this.lists= [];
+    let name= n;
+    let lists= [];
 
     if (lsts != null) {
-        this.lists = lsts
+        lists = lsts
     }
 
     return {
-        name: this.name,
-        lists: this.lists,
+        name: name,
+        lists: lists,
     }
 
     

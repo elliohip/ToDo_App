@@ -62,7 +62,7 @@ export default class Project{
 
 
         for (let i = 0; i < this.lists.length; i++) {
-            base.lists[i].push(this.lists[i].to_base_list());
+            base.lists.push(this.lists[i].to_base_list());
         }
         
         return base;
