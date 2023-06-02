@@ -3,8 +3,8 @@ import ListBase from "../base_objects/list";
 import BlankTodoItem from "./BlankTodoItem";
 import TodoItem from "./TodoItem";
 
-import { current_project } from "../../index";
-import {update_storage} from "../storage/update_storage"
+import { update_storage } from "../../index";
+// import {update_storage} from "../storage/update_storage"
 
 export default class TodoList {
 
@@ -41,7 +41,7 @@ export default class TodoList {
 
         this.items.push(this.blank_item)
 
-        this.blank_item.add_button.addEventListener("click", () => {this.add_button_listener(this.blank_item.to_todo_item())})
+        this.blank_item.add_button.addEventListener("click", () => {this.add_item(this.blank_item.to_todo_item(),true)})
 
         console.log("made blank")
 
@@ -63,41 +63,41 @@ export default class TodoList {
     /**
      * 
      * @param {TodoItem} it 
+     * @param {boolean} store tells wether to store this item
      */
-    add_item(it) {
-
-        let remove_element = this.items.pop()
-
-        this.main.removeChild(remove_element.root)
-        this.items.push(it)
-        this.main.appendChild(it.root)
-    }
-
-    
-    /**
-     * 
-     * 
-     */
-    add_button_listener(list) {
+    add_item(it, store) {
 
         
+        this.main.innerHTML = ""
+        this.items.pop()
+        this.items.push(it)
 
-        this.add_item(this.blank_item.to_todo_item())
+        for (let i = 0; i < this.items.length; i++) {
 
-        update_storage()
+            this.main.appendChild(this.items[i].root)
+
+        }
 
         this.blank_item = new BlankTodoItem(this.title)
 
-        this.blank_item.add_button.addEventListener("click", () => {this.add_button_listener(this.blank_item.to_todo_item())})
+        this.blank_item.add_button.addEventListener("click", () => {this.add_item(this.blank_item.to_todo_item(), true)})
+
+        if (store) {
+            update_storage()
+        }
 
         this.items.push(this.blank_item)
         this.main.appendChild(this.blank_item.root)
 
-        
-
-        
+        /*
+        this.main.removeChild(this.items.pop().root)
+        this.items.push(it)
+        this.main.appendChild(it.root)
+        */
     }
 
+    
+    
     remove_selected_items() {
 
         for (let i = 0; i < this.items.length; i++) {
@@ -126,6 +126,15 @@ export default class TodoList {
         }
 
         return base
+    }
+
+    populate_items() {
+        for (let i = 0; i < this.items.length; i++) {
+            if(this.items[i] instanceof BlankTodoItem) {
+                this.items.pop()
+            }
+            this.root.appendChild(this.items[i])
+        }
     }
 
 

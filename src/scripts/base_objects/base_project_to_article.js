@@ -6,9 +6,9 @@ import ProjectBase from "./project";
 
 /**
  * 
- * @param {ProjectBase} project 
+ * @param {any} project 
  */
-function project_to_article(project) {
+export default function project_to_article(project) {
     let proj = new Project(project.name, []);
 
     let pre_lists = project.lists;
@@ -20,10 +20,10 @@ function project_to_article(project) {
         let post_arr = [];
 
         for (let j = 0; j < pre_lists[i].items.length; j++) {
-            post_arr.push(TodoItem(pre_lists[i].items[j]))
+            list.add_item(new TodoItem(pre_lists[i].items[j]), false)
         }
-        post_arr.push(new BlankTodoItem(list.title))
-        list.items = post_arr
+        // post_arr.push(new BlankTodoItem(list.title))
+        // list.items = post_arr
 
         post_lists.push(list)
     }
@@ -31,3 +31,4 @@ function project_to_article(project) {
 
     return proj
 }
+

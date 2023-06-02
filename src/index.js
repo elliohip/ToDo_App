@@ -27,17 +27,22 @@ let projects = []
 
 let current_project = undefined
 
-document.addEventListener("DOMContentLoaded", function () {
+function load() {
 
-    localStorage.removeItem("project")
+    // localStorage.removeItem("project")
 
     let p = JSON.parse(localStorage.getItem("project"))
 
     if (p != null) {
         current_project = base_project_to_article(p)
+        current_project.set_root()
     }
     
-});
+}
+
+document.addEventListener("DOMContentLoaded", load);
+
+
 
 const main_content = document.getElementById("main-content")
 
@@ -131,4 +136,4 @@ function update_storage() {
     
 }
 
-export{current_project}
+export{update_storage}
