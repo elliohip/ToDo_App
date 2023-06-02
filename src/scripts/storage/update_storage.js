@@ -11,3 +11,5 @@ function update_storage() {
     localStorage.setItem("project", JSON.stringify(current_project.to_base_project()))
     
 }
+
+export {update_storage}

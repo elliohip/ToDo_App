@@ -66,8 +66,8 @@ nav.new_project.addEventListener("click", function() {
     projects.push(project)
     nav.projects.items.push(project_item(project))
 
-    // does nothing for now
-//    update_storage()
+    //does nothing for now
+    update_storage()
 
     project.set_root()
 
