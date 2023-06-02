@@ -37,7 +37,9 @@ function load() {
         current_project = base_project_to_article(p)
         current_project.set_root()
     }
-    
+
+    nav.projects.items.push(project_item(current_project))
+
 }
 
 document.addEventListener("DOMContentLoaded", load);
@@ -64,12 +66,12 @@ nav.new_project.addEventListener("click", function() {
     let first_list = prompt("name of first list: ")
     let project = new Project(name, [new TodoList(first_list,name)])
 
-    
-
     current_project = project
 
+    nav.projects.items.push(project_item(current_project))
+
     projects.push(project)
-    nav.projects.items.push(project_item(project))
+    // nav.projects.items.push(project_item(project))
 
     //does nothing for now
     update_storage()
