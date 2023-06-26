@@ -88,6 +88,8 @@ export default class TodoItem{
         const description_comp = document.createElement("p");
         const date = document.createElement("p");
 
+        const priority = document.createElement("p")
+
         description_comp.classList.add("Todo-Item-description")
         
         
@@ -96,6 +98,8 @@ export default class TodoItem{
         date.innerHTML = this.due_date;
         title_comp.innerHTML = this.title;
         description_comp.innerHTML = this.description;
+
+        priority.innerHTML = this.priority
 
         this.remove_button.innerHTML = "Remove"
         // this.remove_button.classList.add("remove_item_button")
