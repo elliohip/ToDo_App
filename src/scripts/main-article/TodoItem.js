@@ -109,6 +109,7 @@ export default class TodoItem{
         // this.root.appendChild(due_date)
         this.root.appendChild(description_comp)
         this.root.appendChild(date)
+        this.root.appendChild(priority)
 
         this.root.appendChild(this.remove_button.root)
         
