@@ -68,7 +68,7 @@ export default class BlankTodoItem {
 
         this.update_user_input()
 
-        let item = ItemBase(this.user_input.title, this.user_input.description, this.user_input.priority, this.user_input.date, this.list_name)
+        let item = ItemBase(this.user_input.title, this.user_input.description, this.user_input.date, this.user_input.priority, this.list_name)
 
         
 
