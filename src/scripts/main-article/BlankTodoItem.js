@@ -26,7 +26,9 @@ export default class BlankTodoItem {
         this.description = document.createElement("input")
         this.priority = document.createElement("select")
 
-        this.date = document.createElement("div")
+        this.date = document.createElement("input")
+
+        this.date.type = "datetime"
 
         this.title.type = "text"
         this.description.type = "text"
@@ -54,7 +56,7 @@ export default class BlankTodoItem {
         this.root.appendChild(this.title)
         this.root.appendChild(this.description)
         this.root.appendChild(this.priority)
-        // this.root.appendChild(this.main)
+        this.root.appendChild(this.date)
 
         
         this.root.appendChild(this.add_button)
