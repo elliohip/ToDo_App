@@ -28,7 +28,7 @@ export default class BlankTodoItem {
 
         this.date = document.createElement("input")
 
-        this.date.type = "datetime"
+        this.date.type = "date"
 
         this.title.type = "text"
         this.description.type = "text"
