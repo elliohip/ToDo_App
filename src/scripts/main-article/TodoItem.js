@@ -86,14 +86,14 @@ export default class TodoItem{
         //let date_string = String(this.due_date.month) + "/" + String(this.due_date.day) + "/" +  String(this.due_date.year);
         const title_comp = document.createElement("h1");
         const description_comp = document.createElement("p");
-        // const due_date = document.createElement("p");
+        const date = document.createElement("p");
 
         description_comp.classList.add("Todo-Item-description")
         
         
         
         
-        // due_date.innerHTML = date_string;
+        date.innerHTML = this.due_date;
         title_comp.innerHTML = this.title;
         description_comp.innerHTML = this.description;
 
@@ -104,6 +104,7 @@ export default class TodoItem{
         this.root.appendChild(title_comp)
         // this.root.appendChild(due_date)
         this.root.appendChild(description_comp)
+        this.root.appendChild(date)
 
         this.root.appendChild(this.remove_button.root)
         
